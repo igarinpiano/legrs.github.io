@@ -98,10 +98,45 @@ a{
     width: 60vw;
     height: auto;
     margin: auto;
-    loading: lazy;
 }
 .imgs2{
     width: 20vw;
     height: auto;
-    loading: lazy;
+}
+
+/* 旧<frameset cols=10,80>と同じ見た目のフレームレイアウト */
+html.frames-html{
+    height: 100%;
+}
+body.frames-body{
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+}
+.frames{
+    display: flex;
+    height: 100%;
+    background: #d0d0d0;
+}
+.frames iframe{
+    display: block;
+    height: 100%;
+    border: 0;
+    box-sizing: content-box;
+}
+.frames iframe:first-child{
+    flex: none;
+    width: calc((100vw - 6px) / 9);
+    width: calc(10px + round(down, (100vw - 96px) / 9 + 0.01px, 1px));
+    border-right: 1px solid #aaa;
+}
+.frames iframe:last-child{
+    flex: 1 1 0;
+    min-width: 0;
+    margin-left: 4px;
+    border-left: 1px solid #000;
+}
+/* フレーム内のページ(旧marginwidth="0" marginheight="0"相当) */
+.bodyimg, #menuH, #menuH2{
+    margin: 0;
 }
