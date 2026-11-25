@@ -104,19 +104,35 @@ a{
     height: auto;
 }
 
+/* 旧<frameset cols=10,80>と同じ見た目のフレームレイアウト */
 body.frames-body{
     margin: 0;
+    overflow: hidden;
 }
 .frames{
     display: flex;
     height: 100vh;
+    background: #d0d0d0;
 }
 .frames iframe{
-    border: 1px solid #808080;
+    display: block;
+    height: 100%;
+    border: 0;
+    box-sizing: content-box;
 }
 .frames iframe:first-child{
-    flex: 10 0 0;
+    flex: none;
+    width: calc((100vw - 6px) / 9);
+    width: calc(10px + round(down, (100vw - 96px) / 9, 1px));
+    border-right: 1px solid #aaa;
 }
 .frames iframe:last-child{
-    flex: 80 0 0;
+    flex: 1 1 0;
+    min-width: 0;
+    margin-left: 4px;
+    border-left: 1px solid #000;
+}
+/* フレーム内のページ(旧marginwidth="0" marginheight="0"相当) */
+.bodyimg, #menuH, #menuH2{
+    margin: 0;
 }
